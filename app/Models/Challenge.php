@@ -24,8 +24,15 @@ class Challenge extends Model
      * @var array
      */
     protected $hidden = [
-        'deleted_at'
+        'deleted_at', 'category_id'
     ];
+
+    /**
+     * The attributes relation that bring when call
+     *
+     * @var array
+     */
+    protected $with = array('challenge_categorys');
 
     /**
      * The model's default values for attributes.
@@ -42,5 +49,9 @@ class Challenge extends Model
 
     public function challange_submissions() {
         return $this->hasMany(ChallengeSubmission::class);
+    }
+
+    public function challenge_categorys() {
+        return $this->belongsTo(ChallengeCategory::class, 'category_id', 'id');
     }
 }

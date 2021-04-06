@@ -30,7 +30,12 @@ $router->group(['prefix' => 'v1/api'], function () use ($router) {
     $router->put('challenge/{id}', 'ChallengeController@update');
     $router->delete('challenge/{id}', 'ChallengeController@delete');
 
-    // NOT READY
+    $router->get('category', 'ChallengeCategoryController@index');
+    $router->get('category/{id}', 'ChallengeCategoryController@get');
+    $router->post('category', 'ChallengeCategoryController@create');
+    $router->put('category/{id}', 'ChallengeCategoryController@update');
+    $router->delete('category/{id}', 'ChallengeCategoryController@delete');
+
     $router->get('challenge/{id}/followers', 'ChallengeFollowerController@get');
     $router->post('challenge/{id}/follow', 'ChallengeFollowerController@follow');
     $router->post('challenge/{id}/unfollow', 'ChallengeFollowerController@unfollow');
