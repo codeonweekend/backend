@@ -45,5 +45,9 @@ $router->group(['prefix' => 'v1/api'], function () use ($router) {
     $router->put('challenge/{id}/submission', 'ChallengeSubmissionController@update');
     $router->delete('challenge/{id}/unsubmit', 'ChallengeSubmissionController@unsubmit');
 
+    $router->get('user/profile', 'UserController@get');
+    $router->post('user/profile', 'UserController@post');
+    $router->put('user/profile', 'UserController@put');
+    $router->get('user/profile/{username}', 'UserController@getUser');
 
 });
